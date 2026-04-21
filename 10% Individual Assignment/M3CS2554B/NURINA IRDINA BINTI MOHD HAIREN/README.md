@@ -40,7 +40,7 @@ Python’s execution is typically single-threaded due to the Global Interpreter 
 
 1. Clone the Repository:
 
- git clone https://github.com/your-username/prime-finder.git
+    git clone https://github.com/your-username/prime-finder.git
 cd prime-finder
 
 2. No External Dependencies: This program uses Python’s standard library (math, threading, multiprocessing). No pip install is required.
@@ -76,7 +76,18 @@ python prime_finder.py
 
 <img width="802" height="541" alt="Screenshot 2026-04-22 005546" src="https://github.com/user-attachments/assets/a02b3e5e-8470-4f63-a4c3-4e7194a08f7c" />
 
+## ⋆. 𐙚 ˚ Conclusion
+
+This project successfully demonstrated the practical differences between concurrency and parallelism in Python. By benchmarking three execution models, several key conclusions were reached:
+
+-Sequential Execution: Proved inefficient for large-scale calculations as it utilizes only a single CPU core.
+
+-Threading (Concurrency): Provided minimal performance gains. Due to Python’s Global Interpreter Lock (GIL), threads cannot perform CPU-intensive math simultaneously, making this method better suited for tasks that involve "waiting" (like network requests) rather than "calculating."
+
+-Multiprocessing (Parallelism): This was the most effective approach. By creating separate processes, the program bypassed the GIL and utilized the full power of a multi-core processor, significantly reducing the time required to find primes.
+
 ##  🎞️✮⋆˙Video Demonstration:
+
 
 
 
