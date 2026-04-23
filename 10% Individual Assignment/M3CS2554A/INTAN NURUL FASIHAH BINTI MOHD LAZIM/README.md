@@ -1,5 +1,5 @@
-<img width="1064" height="988" alt="image" src="https://github.com/user-attachments/assets/7e92843a-e25a-44c5-8b7e-7a633fa838fa" /># 🎲 PARALLEL DICE COMBINATION SIMULATOR
 
+## 🎲 PARALLEL DICE SIMULATOR
 **NAME:** INTAN NURUL FASIHAH BINTI MOHD LAZIM
 
 **STUDENT ID:** 2024442972
