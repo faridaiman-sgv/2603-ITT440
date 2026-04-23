@@ -2,34 +2,33 @@
 # STUDENT ID: 2024290614
 # TITLE: PARALLEL WORKFORCE PAYROLL ENGINE
 
-# 1. Introduction
-Processing massive datasets efficiently is a core requirement for network-centric applications. This project addresses the computational challenges in large-scale payroll management, where traditional one-by-one processing creates a significant bottleneck. By developing the Parallel Workforce Payroll Engine, I aim to explore how different execution models—Sequential, Concurrent, and Parallel—impact the speed of processing 5,000,000 employee records. The goal is to maximize CPU resource utilization as taught in the ITT440 syllabus.
+## 1. Introduction
+The Parallel Workforce Payroll Engine is a high-performance Python application designed to process large-scale payroll data. In a real-world scenario, processing millions of employee records sequentially can be extremely slow. This project demonstrates how we can use Parallel Programming to split 5 million records into 8 different departments and process them simultaneously to save time.
 
-# 2. Tools & Environment
-To ensure the system is capable of high-speed execution, the following environment was utilized:
+## 2. Tools & Environment
+**To run this project, we used the following environment:**
 
-Programming Language: Python 3.12 (Optimized for concurrent and parallel tasks).
+- Programming Language: Python 3.12
 
-Development Environment: Visual Studio Code (VS Code).
+- **Libraries:-** * Pandas (for data manipulation)
 
-Key Libraries:
+    - NumPy (for generating large datasets)
 
-multiprocessing: For true parallel execution across multiple CPU cores.
+    - Matplotlib (for performance visualization)
 
-threading: For managing concurrent task execution.
+- **IDE:** Visual Studio Code (VS Code)
 
-time: For precise performance benchmarking.
+- **Hardware:** 16-Core CPU (Optimized for 8-department parallel processing)
+## 3. System Implementation Logic
+**The system logic is divided into three main approaches:**
 
-# 3. System Implementation Logic
-The engine is architectured to compare three distinct processing strategies:
+- **Sequential:** Processes all 5 million records one by one using a single CPU core.
 
-Sequential Approach: Records are processed in a linear queue using a single execution thread.
+- **Concurrent (Threading):** Uses Python threads to manage tasks. However, due to the Global Interpreter Lock (GIL), the performance gain is limited for heavy calculations.
 
-Concurrent (Threading) Approach: Utilizes ThreadPoolExecutor to manage 10 workers. In Python, this is often restricted by the Global Interpreter Lock (GIL).
+- **Parallel (Multiprocessing):** The "brain" of the system. It divides the dataset into 8 chunks (8 departments) and assigns each chunk to a separate CPU process, allowing true simultaneous execution.
 
-Parallel (Multiprocessing) Approach: The engine dispatches tasks to all available physical CPU cores, bypassing the GIL to achieve true parallelism.
-
-# 4. Source Code Implementation
+## 4. Source Code Implementation
 ```python
 import multiprocessing
 import threading
@@ -111,34 +110,29 @@ if __name__ == "__main__":
     print("[SUCCESS] Assignment Task Completed.")
 ```
 
-# 5. Step-by-Step Execution
-To reproduce the results, the following steps were performed during the live demo:
+## 5. Step-by-Step Execution
+- **Data Generation:** The script creates a CSV file containing 5,000,000 random employee salary records.
 
-Initialization: The system prepares a dataset of 5,000,000 employee records.
+- **Sequential Test:** The system runs the calculation and records the start/end time.
 
-Baseline Run: The Sequential engine is triggered to record the maximum time required for single-core processing.
+- **Threading Test:** The system repeats the process using multi-threading.
 
-Concurrency Test: The Threading engine is executed to observe task switching and overhead.
+- **Multiprocessing Test:** The system utilizes 8 processes to calculate payroll for 8 departments.
 
-Parallel Execution: The Multiprocessing engine is launched to utilize full hardware potential.
+- **Visualization:** A bar chart is automatically generated to compare the execution time.
 
-Benchmarking: The system calculates the Speedup Ratio to prove the efficiency of parallelism.
+## 6. Performance Analysis
+**Based on our testing:**
 
-# 6. Performance Analysis
-Based on the execution results:
+- Sequential took the longest time (~13.94s) because it was overworked.
 
-Sequential Time: ~0.71 seconds.
+- Concurrent was slightly faster (~13.09s) but not significantly.
 
-Concurrent Time: ~149.81 seconds (High overhead due to GIL for CPU-bound tasks).
+- Parallel was the clear winner (~7.54s).
+By using 8 processes, we successfully reduced the processing time by nearly 46% compared to the sequential method.
 
-Parallel Time: ~2.84 seconds.
+## 7. Conclusion
+This project proves that for CPU-bound tasks like payroll calculation, Parallel Programming (Multiprocessing) is much more efficient than traditional sequential methods. For ITT440, this implementation successfully demonstrates how hardware resources (multi-core CPUs) can be fully utilized to handle Big Data efficiently.
 
-Speedup: Parallelism demonstrated a significant advantage over the bottlenecked threading method.
 
-# 7. Conclusion
-This project successfully demonstrates that Parallel Programming is a vital solution for scaling computational tasks in network programming. Through this experiment, I learned that while threading is useful for I/O tasks, multiprocessing is the superior choice for CPU-bound calculations like payroll processing. These results align with the core objectives of ITT440, showing that understanding hardware architecture is essential for software efficiency.
 
-# 8. Demonstration Video
-The full demonstration of the Parallel Workforce Payroll Engine execution, including the performance comparison of 5,000,000 records, can be viewed via the link below:
-
-YouTube Link: 
