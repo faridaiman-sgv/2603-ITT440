@@ -27,7 +27,7 @@ In large-scale data processing, the Sequential method is often time-consuming be
 - Libraries : matplotlib (Visualitation), pandas, csv, time, threading, multiprocessing
 - Hardware : CPU with at least 4 logical processors / cores for optimal results
 
-  # Installation Guide
+# Installation Guide
   1. Install the required visualization library in the terminal:
      ~~~
      pip install matplotlib
@@ -190,3 +190,4 @@ Output:
 In conclusion, for tasks involving heavy mathematical computations (CPU-bound tasks), utilizing Parallel Processing (Multiprocessing) is the optimal choice. While Concurrent (Threading) is effective for I/O-bound tasks, it is not comparable to the performance of Parallel processing in the context of large-scale data computation in Python.
 
 # Demostration Video
+https://youtu.be/qcF-qNtgMek
