@@ -129,24 +129,23 @@ import threading
 import multiprocessing as mp
 from queue import Queue
 
-# =========================================================
+#-------------------------------------------------------------------------------------------------
 # AIRPORT BAGGAGE HANDLING AND SORTING SIMULATOR
-# ---------------------------------------------------------
+#-------------------------------------------------------------------------------------------------
 # This program demonstrates:
 # 1. Sequential processing
 # 2. Concurrent processing using threading
 # 3. Parallel processing using multiprocessing
 #
-# =========================================================
+#-------------------------------------------------------------------------------------------------
 
 # Predefined destinations and priorities
 DESTINATIONS = ["KUL", "JHB", "PEN", "LGK", "BKI", "KCH"]
 PRIORITIES = ["Normal", "Priority", "Fragile"]
 
 
-# ---------------------------------------------------------
+
 # DATA GENERATION
-# ---------------------------------------------------------
 def generate_baggage_data(num_bags):
     """
     Generate baggage records automatically.
@@ -171,9 +170,8 @@ def generate_baggage_data(num_bags):
     return baggage_list
 
 
-# ---------------------------------------------------------
+
 # CPU WORKLOAD SIMULATION
-# ---------------------------------------------------------
 def sorting_workload(bag):
     """
     Simulate CPU-intensive baggage sorting.
@@ -194,9 +192,7 @@ def sorting_workload(bag):
     return destination_index, result
 
 
-# ---------------------------------------------------------
 # SEQUENTIAL PROCESSING
-# ---------------------------------------------------------
 def process_sequential(baggage_list):
     """
     Sequential processing:
@@ -216,9 +212,7 @@ def process_sequential(baggage_list):
     return destination_count, total_score, end_time - start_time
 
 
-# ---------------------------------------------------------
 # THREAD WORKER FUNCTION
-# ---------------------------------------------------------
 def thread_worker(task_queue, destination_count, total_score_box, lock):
     """
     Worker function for threading.
@@ -244,9 +238,7 @@ def thread_worker(task_queue, destination_count, total_score_box, lock):
         task_queue.task_done()
 
 
-# ---------------------------------------------------------
 # CONCURRENT PROCESSING USING THREADING
-# ---------------------------------------------------------
 def process_threading(baggage_list, num_threads=4):
     """
     Concurrent processing using threading.
@@ -285,9 +277,8 @@ def process_threading(baggage_list, num_threads=4):
     return destination_count, total_score_box[0], end_time - start_time
 
 
-# ---------------------------------------------------------
+
 # PARALLEL PROCESSING USING MULTIPROCESSING
-# ---------------------------------------------------------
 def process_multiprocessing(baggage_list, num_processes=4):
     """
     Parallel processing using multiprocessing.
@@ -314,9 +305,8 @@ def process_multiprocessing(baggage_list, num_processes=4):
     return destination_count, total_score, end_time - start_time
 
 
-# ---------------------------------------------------------
+
 # SUMMARY OUTPUT
-# ---------------------------------------------------------
 def print_summary(destination_count, total_score):
     """
     Print summary instead of full data.
@@ -329,9 +319,8 @@ def print_summary(destination_count, total_score):
     print(f"Total sort score: {total_score}")
 
 
-# ---------------------------------------------------------
+
 # PERFORMANCE COMPARISON
-# ---------------------------------------------------------
 def compare_times(seq_time, thread_time, process_time):
     """
     Compare execution times of all three methods.
@@ -351,9 +340,8 @@ def compare_times(seq_time, thread_time, process_time):
         print("Fastest Method: Multiprocessing")
 
 
-# ---------------------------------------------------------
+
 # MAIN FUNCTION
-# ---------------------------------------------------------
 def main():
     print("===== AIRPORT BAGGAGE HANDLING SIMULATOR =====")
 
