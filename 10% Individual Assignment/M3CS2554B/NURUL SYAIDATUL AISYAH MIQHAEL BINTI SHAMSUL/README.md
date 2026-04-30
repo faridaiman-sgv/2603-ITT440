@@ -13,7 +13,7 @@ This system focuses on the performance differences between Sequential, Concurren
 
 ## ❗ Problem Statement
 
-Processing large datasets using sequential execution is time-consuming and inefficient, especially with modern multi-core processors.
+Processing large datasets of 3,000,000 movie ratings, sequential execution is time-consuming and inefficient, especially with modern multi-core processors.
 
 Although concurrency using threading allows multiple tasks to run at the same time, it is limited by the Global Interpreter Lock (GIL) in Python because it cannot fully use multiple CPU cores for heavy calculations.
 
